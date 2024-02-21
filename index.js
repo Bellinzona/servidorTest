@@ -10,6 +10,13 @@ const port = process.env.PORT || 8080;
 const usuarios = []; // Almacena los nombres de los usuarios conectados
 
 
+(http, {
+    cors: {
+      origin: '*',
+    }
+  });
+
+
 app.get("/", (req,res) => {
     res.send("holaa")
 })
