@@ -5,6 +5,7 @@ const socketio = require("socket.io");
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
+const cors = require('cors');
 
 const port = process.env.PORT || 8080;
 const usuarios = []; // Almacena los nombres de los usuarios conectados
@@ -15,6 +16,9 @@ const usuarios = []; // Almacena los nombres de los usuarios conectados
       origin: '*',
     }
   });
+
+
+  app.use(cors());
 
   app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
